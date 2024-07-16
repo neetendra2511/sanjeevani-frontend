@@ -3,7 +3,7 @@ export function newAppoint(formdata,setFormdata){
     if(formdata.type==="pathology") text=JSON.stringify({...formdata,treated:true,disease:formdata.testName})
     else    text=JSON.stringify({...formdata})
     const user=sessionStorage.getItem("user")
-        fetch(`http://localhost:8080/patient/appointment/new/${user}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/patient/appointment/new/${user}`,{
             method:'POST',
             credentials:'include',
             headers:{

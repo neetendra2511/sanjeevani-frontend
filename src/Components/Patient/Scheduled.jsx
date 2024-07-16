@@ -11,7 +11,7 @@ export default function Scheduled({person}) {   //TODO: use props instead
     function deleteAppointment(id){
         const check=window.confirm("Are you sure you want to delete this appointment..\nThis is irreversible!")
         if(!check)  return
-        fetch(`http://localhost:8080/patient/appointment/delete/${id}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/patient/appointment/delete/${id}`,{
             method:'GET',           //CORS was disturbing while doing delete...
             credentials:'include',
         }).then(res=>res.json())
@@ -28,7 +28,7 @@ export default function Scheduled({person}) {   //TODO: use props instead
     }
     
     useEffect(()=>{
-        fetch(`http://localhost:8080/patient/appointments/get/${user}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/patient/appointments/get/${user}`)
         .then(res=>res.json())
         .then(res=>{
             if(res.status===404){

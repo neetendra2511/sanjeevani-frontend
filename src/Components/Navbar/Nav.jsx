@@ -4,7 +4,7 @@ import {HashLink } from 'react-router-hash-link'
 
 export default function Nav({toggle,setToggle,person,setPerson}) {
   function logout(){
-    fetch("http://localhost:8080/logout",{
+    fetch(process.env.REACT_APP_BACKEND_URL+"/logout",{
     method:'GET',
     credentials: 'include',
   })

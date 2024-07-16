@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function General({person}) {
     const [loading,setLoading]=useState(true)
     useEffect(()=>{
-        fetch(`http://localhost:8080/user/${person}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/user/${person}`,{
             method:'GET',
             credentials:'include',
         }).then(res=>res.json())

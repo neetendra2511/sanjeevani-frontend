@@ -25,7 +25,7 @@ function App() {
       setPerson(sessionStorage.getItem("user"))
       setUserType(sessionStorage.getItem("userType"))
     }else{
-      fetch("http://localhost:8080/checkUser",{              
+      fetch(process.env.REACT_APP_BACKEND_URL+"/checkUser",{              
           credentials: 'include',
         })
       .then((res)=>res.json())

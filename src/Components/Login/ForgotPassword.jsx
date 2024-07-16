@@ -21,7 +21,7 @@ export default function ForgotPassword(){
         if(emailId==="" || !emailId){
             return window.alert("please enter your email id.")
         }
-        fetch(`http://localhost:8080/resetPassword/${emailId}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/resetPassword/${emailId}`)
         .then(res=>res.json())
         .then(res=>{
             if(res.status===200){
@@ -37,7 +37,7 @@ export default function ForgotPassword(){
 
     const handleOTP=(e)=>{      //function to match OTP
         e.preventDefault()
-        fetch(`http://localhost:8080/checkOTP/${emailRef.current.value}/${otpRef.current.value}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/checkOTP/${emailRef.current.value}/${otpRef.current.value}`)
         .then(res=>res.json())
         .then(res=>{
             if(res.status===200){
@@ -63,7 +63,7 @@ export default function ForgotPassword(){
         }
         
         //url is made like this, so that no one can type it and update the password illegally
-        fetch(`http://localhost:8080/update/password/${id}/${otpRef.current.value}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/update/password/${id}/${otpRef.current.value}`,{
             method:'POST',
             credentials:'include',
             headers:{

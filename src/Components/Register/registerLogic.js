@@ -24,7 +24,7 @@ export function handleSubmit(e,formdata,person,setPerson){
         return;
     }
     const text=JSON.stringify(formdata)
-    fetch("http://localhost:8080/register",{
+    fetch(process.env.REACT_APP_BACKEND_URL+"/register",{
     method:'POST',
     credentials: 'include',
     headers: {

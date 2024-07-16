@@ -28,7 +28,7 @@ export default function UpdateProfile({person}){
       }
     
     useEffect(()=>{
-        fetch(`http://localhost:8080/user/${person}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/user/${person}`,{
             method:'GET',
             credentials:'include',
         }).then(res=>res.json())
@@ -41,7 +41,7 @@ export default function UpdateProfile({person}){
     },[])
 
     function handleUpdate(e){
-        fetch(`http://localhost:8080/update/profile/${user._id}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/update/profile/${user._id}`,{
             method:'POST',
             credentials:'include',
             headers:{

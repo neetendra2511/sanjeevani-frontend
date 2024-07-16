@@ -5,7 +5,7 @@ export default function Dashboard({ person }) {
   const [loading, setLoading] = useState(true);
   const [toggle,setToggle]=useState(false)
   useEffect(() => {
-    fetch(`http://localhost:8080/user/${person}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/user/${person}`, {
       method: "GET",
       credentials: "include",
     })

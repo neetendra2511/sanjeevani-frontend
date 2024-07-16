@@ -1,7 +1,7 @@
 export function handleSubmit(e,email,password,person,setPerson) {
   e.preventDefault()
   // console.log(email,password)
-  fetch("http://localhost:8080/login",{
+  fetch(process.env.REACT_APP_BACKEND_URL+"/login",{
     method:'POST',
     credentials: 'include',
     headers: {

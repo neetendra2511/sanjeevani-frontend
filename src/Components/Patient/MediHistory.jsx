@@ -12,7 +12,7 @@ export const MediHistory = ({person}) => {
     }
     function addHistory(e){
         e.preventDefault()
-        fetch(`http://localhost:8080/patient/history/add/${id}`,{
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/patient/history/add/${id}`,{
             method:'POST',
             credentials:'include',
             headers:{
@@ -29,7 +29,7 @@ export const MediHistory = ({person}) => {
     }
     const [val,setVal]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:8080/patient/history/get/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/patient/history/get/${id}`)
         .then((res)=>res.json())
         .then(res=>{
             if(res.status===200){
